@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos Web   </title>
+    <style>
+        /* Estilo general */
+        body {
+            background-color: #c0c0c0;
+            color: #000000;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-size: 14px;
+            margin: 0;
+            padding: 10px;
+        }
+
+        h1 {
+            background-color: #000080;
+            color: #ffffff;
+            padding: 5px;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .window {
+            background-color: #ffffff;
+            border: 2px solid #000080;
+            box-shadow: 4px 4px #808080;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        a {
+            color: #000080;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .directory {
+            font-weight: bold;
+        }
+
+        /* Iconos para archivos y carpetas */
+        .icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+        }
+
+        /* Estilo del pie de página */
+        footer {
+            background-color: #c0c0c0;
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            border-top: 1px solid #808080;
+        }
+    </style>
+</head>
+<body>
+    <h1>Explorador de Archivos</h1>
+    <div class="window">
+        <ul>
+            <li><img src="./img/folder.png" alt="file" class="icon"> <a href="./index-conceptos-basicosJs.html">Conceptos Javascript</a></li>
+            <li><img src="./img/folder.png" alt="file" class="icon"> <a href="./index-resumenJS.html">Resumen Javascript</a></li>
+            <li><img src="./img/folder.png" alt="file" class="icon"> <a href="./index-cierrenivel2.html">Cierre Nivel 02</a></li>     
+        
+        </ul>
+    </div>
+    <footer id="footer"></footer>
+
+<script>
+    // Función para formatear la fecha
+    function formatearFecha() {
+        const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", 
+                       "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+        const hoy = new Date();
+        const dia = hoy.getDate();
+        const mes = meses[hoy.getMonth()];
+        const año = hoy.getFullYear();
+
+        let textoFooter = `${dia} de ${mes} ${año}`;
+
+        // Agregar leyenda para el 26 de junio
+        if (hoy.getDate() === 26 && hoy.getMonth() === 5) { // Junio es el mes 5 (0-indexado)
+            textoFooter += " - Esa mancha no se borra más";
+        }
+
+        return textoFooter;
+    }
+
+    // Insertar el texto en el pie de página
+    document.getElementById("footer").innerText = formatearFecha();
+</script>
+</body>
+</html>
